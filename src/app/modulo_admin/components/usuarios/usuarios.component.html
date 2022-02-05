@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h3>Listado de Usuarios</h3>
+  <style>table, th, td {
+    border: 1px solid black ;
+    border: collapse;
+    }
+    </style>
+</div>
+
+<div class="row text-end">
+  <div class="col">
+    <button class="btn btn-outline-primary" routerLink="/admin/usuario/registrar">
+      <i class="fas fa-user-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+
+<table *ngIf="!cargando && users.length > 0"
+  class="table mt-5">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombres</th>
+    <th scope="col">Teléfono</th>
+    <th scope="col">Email</th>
+    <th scope="col">Contraseña</th>
+    <th scope="col">Dirección</th>
+    <th scope="col">Opción</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; let i = index">
+    <th scope="row">{{ i + 1}}</th>
+    <td>{{ user.fullName }}</td>
+    <td>{{ user.phone }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.password }}</td>
+    <td>{{ user.address }}</td>
+    <td>
+      <button class="btn btn-outline-warning m-2"
+              [routerLink]="['/admin/usuario/', user._id]">
+        <i class="fas fa-user-edit"></i>
+      </button>
+      <button class="btn btn-outline-danger" (click)="eliminar(user, i)">
+        <i class="fas fa-user-minus"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div *ngIf="cargando"
+  class="alert alert-info text-center mt-3">
+  <h5>Cargando</h5>
+  <p>
+    <i class="fas fa-spinner fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">Por favor espere...</p>
+</div>
+
+<div *ngIf="!cargando && users.length === 0"
+  class="alert alert-warning text-center mt-3">
+  <h5>No hay registros</h5>
+  <p>
+    <i class="fas fa-exclamation fa-2x"></i>
+  </p>
+</div>

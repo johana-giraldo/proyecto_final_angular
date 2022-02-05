@@ -1,0 +1,46 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" aria-current="page" [routerLink]="['dashboard']">
+          <span data-feather="home"></span>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['agendas']">
+          <span data-feather="file"></span>
+          Agenda
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['sucursales']">
+          <span data-feather="file-text"></span>
+          Gestionar Sucursales
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['roles']">
+          <span data-feather="file-text"></span>
+          Gestionar Roles
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['usuarios']">
+          <span data-feather="file-text"></span>
+          Gestionar Usuarios
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

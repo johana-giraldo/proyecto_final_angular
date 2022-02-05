@@ -1,0 +1,45 @@
+
+<div class="container mt-5 animate__animated animate__fadeInLeft">
+  <div class="row">
+    <div class="col-6 img-login-signup">
+      <h4>
+        <img src="assets/img/veterinaria.jpg">
+      </h4>
+    </div>
+    <div class="col-6 form-login-signup">
+      <h3 class="mt-5 mb-5">Registrar nuevo usuario</h3>
+      <form autocomplete="off" (ngSubmit)="registrar(formSignup)" #formSignup="ngForm">
+        <div class="mb-3">
+          <label for="fullName" class="form-label">Nombres completos</label>
+          <input type="text"
+                 class="form-control"
+                 id="fullName"
+                 name="fullName"
+                 [(ngModel)]="user.fullName"
+                 placeholder="Nombres completos">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email"
+                 class="form-control"
+                 id="email"
+                 name="email"
+                 [(ngModel)]="user.email"
+                 placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password"
+                 class="form-control"
+                 id="password"
+                 name="password"
+                 [(ngModel)]="user.password"
+                 placeholder="Contraseña">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <a href="/login" class="m-lg-3">¿Ya tiene una cuenta?</a>
+      </form>
+    </div>
+  </div>
+</div>

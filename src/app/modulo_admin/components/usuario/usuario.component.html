@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h3>Registrar Usuario</h3>
+</div>
+
+<div class="row text-end">
+  <div class="col">
+    <button class="btn btn-outline-danger" routerLink="/admin/usuarios">
+      <i class="fas fa-arrow-left"></i>
+      Regresar
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <form (ngSubmit)="guardar( formUser )" #formUser="ngForm" >
+        <div class="form-group mb-3">
+          <label>Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="_id"
+            name="_id"
+            [(ngModel)]="user._id"
+            placeholder="Identificador"
+            disabled>
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Nombres</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            name="fullName"
+            [(ngModel)]="user.fullName"
+            placeholder="Nombres completos">
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Teléfono</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            [(ngModel)]="user.phone"
+            placeholder="Teléfono">
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Correo Electrónico</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            [(ngModel)]="user.email"
+            placeholder="Correo Electrónico">
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            [(ngModel)]="user.password"
+            placeholder="Contraseña">
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Dirección</label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            name="address"
+            [(ngModel)]="user.address"
+            placeholder="Dirección">
+        </div>
+
+        <br>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-outline-primary w-25">
+            <i class="fas fa-save"></i>
+            Guardar
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

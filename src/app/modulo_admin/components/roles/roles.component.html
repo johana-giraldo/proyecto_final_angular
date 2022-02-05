@@ -1,0 +1,64 @@
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h3 class="fw-bold">Listado de Roles</h3>
+  <style>table, th, td {
+    border: 1px solid black ;
+    border: collapse;
+    }
+    </style>
+</div>
+
+<div class="row text-end">
+  <div class="col">
+    <button class="btn btn-outline-primary" routerLink="/admin/rol/registrar">
+      <i class="fas fa-user-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+
+<table *ngIf="!cargando && roles.length > 0" class="table table-light table-hover  mt-5">
+  <thead class="table-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Descripción</th>
+    <th scope="col">Permisos</th>
+    <th scope="col">Opción</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let rol of roles; let i = index">
+    <th scope="row">{{ i + 1}}</th>
+    <td>{{ rol.name }}</td>
+    <td>{{ rol.description }}</td>
+    <td>{{ rol.permissions }}</td>
+    <td>
+      <button class="btn btn-outline-warning m-2"
+              [routerLink]="['/admin/rol/', rol._id]">
+        <i class="fas fa-user-edit"></i>
+      </button>
+      <button class="btn btn-outline-danger" (click)="eliminar(rol, i)">
+        <i class="fas fa-user-minus"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3">
+  <h5>Cargando</h5>
+  <p>
+    <i class="fas fa-spinner fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">Por favor espere...</p>
+</div>
+
+<div *ngIf="!cargando && roles.length === 0" class="alert alert-warning text-center mt-3">
+  <h5>No hay registros</h5>
+  <p>
+    <i class="fas fa-exclamation fa-2x"></i>
+  </p>
+</div>
+
+

@@ -1,0 +1,15 @@
+.img-login-signup{
+  margin-left: -110px;
+  margin-top: -50px;
+  margin-bottom: -365px;
+  background-color: rgb(0, 67, 86);
+  height: auto;
+}
+
+.img-login-signup img {
+  width: 100%;
+}
+
+.form-login-signup {
+  padding-left: 150px;
+}

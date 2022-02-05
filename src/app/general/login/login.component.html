@@ -1,0 +1,39 @@
+
+<div class="container mt-5 animate__animated animate__fadeInLeft">
+  <div class="row">
+    <div class="col-6 img-login-signup">
+      <img src="assets/img/veterinaria.jpg">
+    </div>
+    <div class="col-6 form-login-signup">
+      <h3 class="mt-5 mb-5">Iniciar Sesión</h3>
+      <form autocomplete="off" (ngSubmit)="iniciarSesion(formLogin)" #formLogin="ngForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email"
+                 class="form-control"
+                 id="email"
+                 name="email"
+                 [(ngModel)]="user.email"
+                 placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password"
+                 class="form-control"
+                 id="password"
+                 name="password"
+                 [(ngModel)]="user.password"
+                 placeholder="Contraseña">
+        </div>
+
+        <div class="mb-3 form-check">
+          <input [(ngModel)]="rememberMe" class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe">
+          <label class="form-check-label" for="rememberMe">Recuérdame</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <a href="/signup" class="m-lg-3">¿No tiene una cuenta?</a>
+      </form>
+    </div>
+  </div>
+</div>

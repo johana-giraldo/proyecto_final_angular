@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom ">
+  <h3 class="fw-bold ">Registrar Rol</h3>
+</div>
+
+<div class="row text-end">
+  <div class="col">
+    <button class="btn btn-outline-dark" routerLink="/admin/roles">
+      <i class="fas fa-arrow-left"></i>
+      Regresar
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <form [formGroup]="formRol" (ngSubmit)="guardar()" > <!-- autocomplete="off" para que no muestre sugerencias el formulario -->
+        <div class="form-group mb-3">
+          <label for="name" class="form-label"><h5 class="fst-italic"><span style="color: black">Nombre Rol</span><span style="color: red"> *</span></h5></label>
+          <input
+            type="text"
+            class="form-control text-capitalize"
+            id="name"
+            name="name"
+            formControlName="name"
+            [class.is-invalid]="nombreNoValido"
+          >
+          <small *ngIf="nombreNoValido" class="text-danger">
+            El nombre del rol es obligatorio
+          </small>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="description" class="form-label"><h5 class="fst-italic"><span style="color: black">Descripción</span><span style="color: red"> *</span></h5></label>
+
+          <input
+            type="text"
+            class="form-control text-lowercase"
+            id="description"
+            name="description"
+            formControlName="description"
+            [class.is-invalid]="descripcionNoValida"
+          >
+          <small *ngIf="descripcionNoValida" class="text-danger">
+            La descripción  debe contener al menos 10 caracteres
+          </small>
+        </div>
+        <!--
+                <div class="form-group mb-3">
+                  <label for="permissions" class="form-label"><h3><span style="color: black">Permisos Rol</span><span style="color: red"> *</span></h3></label>
+                  <input
+                    type="permissions"
+                    class="form-control"
+                    id="permissions"
+                    name="permissions"
+                    formControlName="permissions"
+                    [class.is-invalid]="permisosNoValidos"
+                  >
+                  <small *ngIf="permisosNoValidos" class="text-danger">
+                    El Permiso no es válido, yo creo que no debe tener este tipo de validación, si no otro
+                  </small>
+                </div>
+-->
+        <br>
+
+        <div formArrayName="permissions">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="crear" (click)="agregarPermiso('crear')">
+            <label class="form-check-label" for="crear">Crear</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="listar" (click)="agregarPermiso('listar')">
+            <label class="form-check-label" for="listar">Listar</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="actualizar" (click)="agregarPermiso('actualizar')">
+            <label class="form-check-label" for="actualizar">Actualizar</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="eliminar" (click)="agregarPermiso('eliminar')">  <!-- checked disabled -->
+            <label class="form-check-label" for="eliminar">Delete</label>
+          </div>
+        </div>
+
+
+        <!--
+  <div formArrayName="permissions">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="crear" (click)="agregarPermiso( 'crear')">
+            <label class="form-check-label fst-italic" for="crear">Crear</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="listar" (click)="agregarPermiso('listar')">
+            <label class="form-check-label fst-italic" for="listar">Listar</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="actualizar" (click)="agregarPermiso('actualizar')">
+            <label class="form-check-label fst-italic" for="actualizar">Actualizar</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="eliminar" (click)="agregarPermiso('eliminar')"> <!--checked disabled
+            <label class="form-check-label fst-italic" for="eliminar">Delete</label>
+          </div>
+  </div>
+          -->
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary w-25">
+            <i class="fas fa-save"></i>
+            Guardar
+          </button>
+        </div>
+
+      </form>
+
+      <hr>
+      <h4>Información del formulario</h4>
+      <span>Estado del formulario formRol.valid: {{ formRol.valid }} </span>
+      <br>
+      <span>Estado formRol.status: {{ formRol.status }} </span>
+
+      <pre>
+        {{ formRol.value | json }}
+     </pre>
+
+    </div>
+  </div>
+</div>
